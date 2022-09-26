@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 const PokemonDetail = () => {
     const { id } = useParams();
     const [ character, setCharacter ] = useState({});
@@ -11,13 +12,13 @@ const PokemonDetail = () => {
             .then(res => setCharacter(res.data));
     }, [id]);
 
-    console.log(character);
+    
 
     return (
-        <div className='card-container'>
-            <div className="card-style">
+        <div className='card'>
+            <div>
                 <h1>Pokemon Detail</h1>
-                <img src={character.sprites?.other?.dream_world?.front_default} alt="" />
+                <img src={character.sprites?.front_default} alt="" />
             </div>
         </div>
     );
