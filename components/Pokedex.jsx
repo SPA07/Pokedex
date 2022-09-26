@@ -62,7 +62,6 @@ const Pokedex = () => {
   // Limite de paginacion hacia adelante
   //ceil -> redondea hacia arriba
   const totalPage = Math.ceil(pokemonList.length / pokemonPerPage);
-  console.log(totalPage)
 
   
   const [actualNum, setActualNum] = useState(1);

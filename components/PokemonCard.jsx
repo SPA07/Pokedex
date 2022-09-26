@@ -11,8 +11,6 @@ const PokemonCard = ({ url }) => {
   const [character, setCharacter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(character);
-
   useEffect(() => {
     axios.get(url).then((res) => setCharacter(res.data)),
       setTimeout(() => {
