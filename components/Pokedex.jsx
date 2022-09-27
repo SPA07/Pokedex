@@ -72,10 +72,15 @@ const Pokedex = () => {
     pagesNumbers.push(i);
   }
 
-  const next = () => {
+  const next = (numActual) => {
     setActualNum(actualNum + 5) 
     setButtons(buttons + 5)
     setPage(actualNum)
+    if(actualNum === 1){
+      setPage(10)
+    }else{
+      setPage(numActual);
+    }
   }
 
   const back = () => {
@@ -131,13 +136,14 @@ const Pokedex = () => {
         ))}
       </div>
       <div id="btn-pagination">
-         <button id="btn" onClick={() => back()} disabled={actualNum === 1}>
+         <button id="btn" onClick={() => back(actualNum)} disabled={actualNum === 1}>
          <i className="fa-solid fa-circle-left"></i>
          </button>
         {pagesNumbers.map((number) => (
-          <button id="pagination" onClick={() => setPage(number)}>{number}</button>
+          <button key={number.toString()} id="pagination" onClick={() => setPage(number)}>{number}</button>
         ))}
-        <button id="btn" onClick={() => next()} disabled={totalPage <= buttons}>
+        
+        <button id="btn" onClick={() => next(actualNum)} disabled={totalPage < buttons}>
           <i className="fa-solid fa-circle-right"></i>
         </button>
         

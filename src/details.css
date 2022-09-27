@@ -1,0 +1,129 @@
+.card-details-container {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    width: 50%;
+    height: 800px;
+    padding: 1px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    background: rgb(100,99,112);
+    background: linear-gradient(90deg, rgba(42, 42, 45, 0.61) 32%, rgba(42, 42, 45, 0.61) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(42, 42, 45, 0.61) 99%);
+}
+
+.head {
+    /* border: 1px solid; */
+    border-radius: 10px;
+    width: 100%;
+    height: 190px;
+    position: relative;
+    margin-top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.card-detail {
+    /* border: 1px solid; */
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    background: rgb(100,99,112);
+    background: linear-gradient(90deg, rgba(55, 54, 58, 0.713) 32%, rgba(54, 54, 57, 0.666) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(39, 40, 41, 0.814) 99%);
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+#pokemon-detail {
+    width: 290px;
+    height: 290px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.name-head {
+    /* border: 1px solid; */
+    border-radius: 10px;
+    width: 700px;
+    height: 170px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 340px;
+    align-self: center;
+    text-align: center;
+    
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 10px;
+    /* background: rgb(100,99,112);
+    background: linear-gradient(90deg, rgba(42, 42, 45, 0.61) 32%, rgba(42, 42, 45, 0.61) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(42, 42, 45, 0.61) 99%); */
+}
+
+.num {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 10px;
+    /* background: rgb(100,99,112);
+    background: linear-gradient(90deg, rgba(42, 42, 45, 0.61) 32%, rgba(42, 42, 45, 0.61) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(42, 42, 45, 0.61) 99%); */
+}
+
+.type h3 {
+    border: 2px solid;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+.pokemon-id {
+    border: 2px solid;
+    border-radius: 5px;
+    width: 75px;
+    height: 40px;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    align-self: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+.name-head h3 {
+    font-size: 1.8rem;
+}
+
+#pokemon-type {
+    /* border: 1px solid; */
+    width: 200px;
+    height: 100px;
+    margin-left: 35px;
+    align-self: center;
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+#pokemon-type p {
+    border-bottom: 1px solid var(--mainWhite);
+    padding: 15px;
+    margin-bottom: 10px;
+    color: var(--mainWhite);
+}
