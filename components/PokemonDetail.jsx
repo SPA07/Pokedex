@@ -42,6 +42,9 @@ const PokemonDetail = () => {
         src={character.sprites?.other?.dream_world?.front_default}
         alt=""
       />
+
+      <div className="main-data-container">
+
       <section className="name-head">
         <div className="pokemon-id" style={{ color: colors() }}>
           #{character.id}
@@ -64,12 +67,14 @@ const PokemonDetail = () => {
           {character.types?.[1]?.type?.name}
         </p>
       </section>
+      
+      </div>
 
       <section id="skills">
         <h4>Skills</h4>
         <p style={{ color: colors() }}>
-          {character.abilities?.[0].ability.name} /{" "}
-          {character.abilities?.[1].ability.name}
+          {character.abilities?.[0]?.ability.name} /{" "}
+          {character.abilities?.[1]?.ability.name}
         </p>
       </section>
 
@@ -99,8 +104,9 @@ const PokemonDetail = () => {
           max="150"
         ></progress>
       </section>
-
-      <div id="moves">
+      
+      <div id="moves" style={{background: colors() }}>
+      <div id="title"><h2>MOVEMENTS</h2></div>
         {
           moves.map((move) => (
             <ul>
