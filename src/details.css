@@ -1,14 +1,13 @@
 .card-details-container {
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     border-radius: 10px;
     width: 50%;
-    height: 800px;
+    height: 1200px;
     padding: 1px;
     margin: 0 auto;
     margin-top: 20px;
     display: flex;
     background: rgb(100,99,112);
-    background: linear-gradient(90deg, rgba(42, 42, 45, 0.61) 32%, rgba(42, 42, 45, 0.61) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(42, 42, 45, 0.61) 99%);
 }
 
 .head {
@@ -26,8 +25,8 @@
     border-radius: 50%;
     width: 280px;
     height: 280px;
-    background: rgb(100,99,112);
-    background: linear-gradient(90deg, rgba(55, 54, 58, 0.713) 32%, rgba(54, 54, 57, 0.666) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(39, 40, 41, 0.814) 99%);
+    /* background: rgb(100,99,112);
+    background: linear-gradient(90deg, rgba(55, 54, 58, 0.713) 32%, rgba(54, 54, 57, 0.666) 34%, rgba(42, 42, 45, 0.61) 72%, rgba(39, 40, 41, 0.814) 99%); */
     position: absolute;
     right: 0;
     left: 0;
@@ -121,9 +120,54 @@
     font-weight: 500;
 }
 
-#pokemon-type p {
+#pokemon-type h4 {
     border-bottom: 1px solid var(--mainWhite);
     padding: 15px;
     margin-bottom: 10px;
     color: var(--mainWhite);
+}
+
+#skills {
+    /* border: 1px solid; */
+    width: 200px;
+    height: 100px;
+    right: 0;
+    margin-right: 435px;
+    align-self: center;
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+#skills h4 {
+    border-bottom: 1px solid var(--mainWhite);
+    padding: 15px;
+    margin-bottom: 10px;
+    color: var(--mainWhite);
+}
+
+#skills p {
+    font-size: 18px;
+}
+
+#stats {
+    border: 1px solid;
+    width: 450px;
+    height: 220px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    margin-top: 525px;
+    padding: 10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+#stats progress {
+    width: 80%;
+    height: 30px;
+    margin: 0 auto;
 }

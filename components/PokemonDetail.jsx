@@ -1,19 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import types from "../public/types.json";
-import pokemonCol from "../public/pokemonCol.json";
+import types from "../src/types.json";
+import pokemonCol from "../src/pokemonCol.json";
 import "../src/details.css";
 
 const PokemonDetail = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
+  const [moves, setMoves] = useState([]);
+  console.log(moves)
 
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((res) => setCharacter(res.data));
   }, [id]);
+
+  useEffect(() => {
+    axios.get("https://pokeapi.co/api/v2/move/")
+    .then((res) => setMoves(res.data.results))
+  }, [])
 
   const colors = () => {
     const arrColor = [];
@@ -25,7 +32,7 @@ const PokemonDetail = () => {
     return arrColor;
   };
 
-  console.log(character);
+  // console.log(character);
   return (
     <div className="card-details-container">
       <section className="head" style={{ background: colors() }}></section>
@@ -51,11 +58,60 @@ const PokemonDetail = () => {
       </section>
 
       <section id="pokemon-type">
-        <p><b>Type</b></p>
-        <h4 style={{ color: colors() }}>
-          {character.types?.[0].type?.name}/{character.types?.[1].type?.name}
-        </h4>
+        <h4>Type</h4>
+        <p style={{ color: colors() }}>
+          {character.types?.[0]?.type?.name} /{" "}
+          {character.types?.[1]?.type?.name}
+        </p>
       </section>
+
+      <section id="skills">
+        <h4>Skills</h4>
+        <p style={{ color: colors() }}>
+          {character.abilities?.[0].ability.name} /{" "}
+          {character.abilities?.[1].ability.name}
+        </p>
+      </section>
+
+      <section id="stats">
+        <p>HP: {character.stats?.[0].base_stat} / 150</p>
+        <progress
+          value={character.stats?.[0].base_stat}
+          min="0"
+          max="150"
+        ></progress>
+        <p>Attack: {character.stats?.[1].base_stat} / 150</p>
+        <progress
+          value={character.stats?.[1].base_stat}
+          min="0"
+          max="150"
+        ></progress>
+        <p>Defense: {character.stats?.[2].base_stat} / 150</p>
+        <progress
+          value={character.stats?.[2].base_stat}
+          min="0"
+          max="150"
+        ></progress>
+        <p>Speed: {character.stats?.[3].base_stat} / 150</p>
+        <progress
+          value={character.stats?.[3].base_stat}
+          min="0"
+          max="150"
+        ></progress>
+      </section>
+
+      <div id="moves">
+        {
+          moves.map((move) => (
+            <ul>
+              <li>
+                {move.name}
+              </li>
+            </ul>
+          ))
+        }
+      </div>
+
     </div>
   );
 };

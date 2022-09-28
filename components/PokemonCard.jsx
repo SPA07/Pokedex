@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SpinnerDotted } from "spinners-react";
-import types from '../public/types.json'
-import pokemonCol from '../public/pokemonCol.json'
+import types from '../src/types.json'
+import pokemonCol from '../src/pokemonCol.json'
 import "../src/cardStyles.css";
 
 const PokemonCard = ({ url }) => {
