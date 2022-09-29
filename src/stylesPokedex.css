@@ -188,3 +188,22 @@ select {
 #pagination:hover {
  background-color: #DD1A1A;
 }
+
+@media(max-width: 1400px) {
+
+  .welcome-container {
+    margin-left: 125px;
+  }
+
+#btn-pagination {
+  /* border: 1px solid yellow; */
+  width: 40%;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 635px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+} 

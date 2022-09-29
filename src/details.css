@@ -7,7 +7,7 @@
     margin: 0 auto;
     margin-top: 20px;
     display: flex;
-    background: rgb(100,99,112);
+    background: rgb(100, 99, 112);
 }
 
 .head {
@@ -66,7 +66,7 @@
     margin-top: 10px;
     align-self: center;
     text-align: center;
-    
+
 }
 
 .info {
@@ -119,6 +119,7 @@
     font-weight: 500;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
+
 .name-head h3 {
     font-size: 1.8rem;
 }
@@ -230,4 +231,113 @@
     width: 500px;
     margin-bottom: 10px;
     font-weight: 500;
+}
+
+@media(max-width: 1815px){
+    .card-details-container {
+        width: 80%;
+        height: 780px;
+    }
+
+    #skills {
+        margin-right: 580px;
+    }
+
+    #stats {
+        width: 70%;
+        margin-top: 550px;
+    }
+
+    #moves {
+        width: 80%;
+        height: 300px;
+        margin-top: 800px;
+    }
+
+    #title {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1780px) {
+    .card-details-container {
+        width: 80%;
+        height: 780px;
+    }
+
+    #skills {
+        margin-right: 380px;
+    }
+
+    #stats {
+        width: 70%;
+        margin-top: 550px;
+    }
+
+    #moves {
+        width: 80%;
+        height: 300px;
+        margin-top: 800px;
+    }
+
+    #title {
+        width: 100%;
+    }
+
+    @media(max-width: 1825px){
+        .card-details-container {
+            width: 80%;
+            height: 780px;
+        }
+    
+        #skills {
+            margin-right: 580px;
+        }
+    
+        #stats {
+            width: 70%;
+            margin-top: 550px;
+        }
+    
+        #moves {
+            width: 80%;
+            height: 300px;
+            margin-top: 800px;
+        }
+    
+        #title {
+            width: 100%;
+        }
+    }
+    
+    @media(max-width: 1780px) {
+        .card-details-container {
+            width: 80%;
+            height: 780px;
+        }
+    
+        #skills {
+            margin-right: 380px;
+        }
+    
+        #stats {
+            width: 70%;
+            margin-top: 550px;
+        }
+    
+        #moves {
+            width: 80%;
+            height: 300px;
+            margin-top: 800px;
+        }
+    
+        #title {
+            width: 100%;
+        }
+    }
+
+    @media(max-width: 1640px){
+        #skills {
+            margin-right: 500px;
+        }
 }
