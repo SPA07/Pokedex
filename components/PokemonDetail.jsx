@@ -82,7 +82,7 @@ const PokemonDetail = () => {
           </div>
           <img
             className="pokeball-img"
-            src="../src/assets/images/pokebola.png"
+            src="../src/assets/pokebola.png"
             alt="pokeball-img"
           />
         </div>
