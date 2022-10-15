@@ -9,9 +9,9 @@ const Pokedex = () => {
   const name = useSelector((state) => state.userName);
   const navigate = useNavigate();
 
-  const [ pokemonList, setPokemonList ] = useState([]);
-  const [ pokemonName, setPokemonName ] = useState("");
-  const [ pokemonType, setPokemonType ] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonName, setPokemonName] = useState("");
+  const [pokemonType, setPokemonType] = useState([]);
 
   useEffect(() => {
     //Se hace la peticion a la API para traer los pokemon existentes
@@ -53,79 +53,84 @@ const Pokedex = () => {
   //Dando asi la posicion sobre la cual se van a imprimir en pantalla
   const firstPokemonIndex = lastPokemonIndex - pokemonPerPage;
 
-  //Se particiona el arreglo
   const pokemonPaginated = pokemonList.slice(
     firstPokemonIndex,
     lastPokemonIndex
   );
 
   // Limite de paginacion hacia adelante
-  //ceil -> redondea hacia arriba
   const totalPage = Math.ceil(pokemonList.length / pokemonPerPage);
 
-  
   const [actualNum, setActualNum] = useState(1);
   const [buttons, setButtons] = useState(5);
-  
+
   let pagesNumbers = [];
   for (let i = actualNum; i <= buttons; i++) {
     pagesNumbers.push(i);
   }
 
   const next = (numActual) => {
-    setActualNum(actualNum + 5) 
-    setButtons(buttons + 5)
-    setPage(actualNum)
-    if(actualNum === 1){
-      setPage(10)
-    }else{
+    setActualNum(actualNum + 5);
+    setButtons(buttons + 5);
+    setPage(actualNum);
+    if (actualNum === 1) {
+      setPage(numActual + 1);
+    } else {
       setPage(numActual);
     }
-  }
+  };
 
   const back = () => {
     setActualNum(actualNum - 5);
-    setButtons(buttons - 5)
-    setPage(actualNum)
-  }
+    setButtons(buttons - 5);
+    setPage(actualNum);
+  };
 
   return (
     <div id="pokedex-container">
-      <header className="headaer-pokedex">
-        <div className="header-red"></div>
-        <div className="image-header-container">
-          <div className="image-header-little"></div>
+      <header className="header-pokedex">
+        <img
+          className="image-header"
+          src="../src/assets/images/head-intro.png"
+          alt="image"
+        />
+        <div className="black-header-container">
+          <div className="black-header-circle">
+            <div className="little-header-black-circle"></div>
+          </div>
         </div>
-        <div className="header-black"></div>
       </header>
 
       <div className="welcome-container">
-        {/* <h1>Pokedex</h1> */}
         <p>
-          <b>Welcome {name},</b>{" "}
-          <span>here you will see your favorite pokemon.</span>
+          Welcome {name},<span> here you will see your favorite pokemon</span>
         </p>
       </div>
 
-      <div className="pokedex-input-container">
-        <input
-          type="text"
-          placeholder="Pokemon name"
-          value={pokemonName}
-          onChange={(e) => setPokemonName(e.target.value)}
-        />
-        <button onClick={searchPokemon}>Search</button>
-      </div>
+      <div className="input-tools">
+        <div className="pokedex-input-container">
+          <input
+            type="text"
+            placeholder="Pokemon name"
+            value={pokemonName}
+            onChange={(e) => setPokemonName(e.target.value)}
+          />
+          <button onClick={searchPokemon}>Search</button>
+        </div>
 
-      <div className="pokemon-selector">
-        <select onChange={(e) => filterByType(e.target.value)}>
-          <option value="">Select pokemon type</option>
-          {pokemonType.map((type) => (
-            <option value={type.url} key={type.url}>
-              {type.name}
-            </option>
-          ))}
-        </select>
+        <div className="pokemon-selector">
+          <select
+            className="pokemon-options"
+            onChange={(e) => filterByType(e.target.value)}
+          >
+            <option value="">Select pokemon type</option>
+            {pokemonType.map((type) => (
+              <option className="options-list" value={type.url} key={type.url}>
+                {type.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="pokemon-container">
@@ -134,19 +139,32 @@ const Pokedex = () => {
             <PokemonCard key={pokemon.url} url={pokemon.url} />
           </div>
         ))}
-      </div>
-      <div id="btn-pagination">
-         <button id="btn" onClick={() => back(actualNum)} disabled={actualNum === 1}>
-         <i className="fa-solid fa-circle-left"></i>
-         </button>
-        {pagesNumbers.map((number) => (
-          <button key={number.toString()} id="pagination" onClick={() => setPage(number)}>{number}</button>
-        ))}
-        
-        <button id="btn" onClick={() => next(actualNum)} disabled={totalPage < buttons}>
-          <i className="fa-solid fa-circle-right"></i>
-        </button>
-        
+        <div className="btn-pagination">
+          <button
+            id="btn"
+            onClick={() => back(actualNum)}
+            disabled={actualNum === 1}
+          >
+            <i className="fa-solid fa-circle-left"></i>
+          </button>
+          {pagesNumbers.map((number) => (
+            <button
+              key={number.toString()}
+              id="pagination"
+              onClick={() => setPage(number)}
+            >
+              {number}
+            </button>
+          ))}
+
+          <button
+            id="btn"
+            onClick={() => next(actualNum)}
+            disabled={totalPage < buttons}
+          >
+            <i className="fa-solid fa-circle-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   );

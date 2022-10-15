@@ -40,7 +40,17 @@ const PokemonCard = ({ url }) => {
             </section>
             <section className="name-container">
               <h3 style={{color: colors()}}>{character.name}</h3>
-              <p>Tipo {character.types?.[0].type?.name}</p>
+              <div className="name-box-container">
+                {character.types?.map((type) => (
+                  <span
+                    key={type.type.name}
+                    className="ability"
+                    style={{ background: colors() }}
+                  >
+                    {type.type.name}
+                  </span>
+                ))}
+              </div>
             </section>
             <section className="pokemon-information">
               <p style={{color: colors()}}>HP <br /><span>{character.stats?.[0]?.base_stat}</span></p>

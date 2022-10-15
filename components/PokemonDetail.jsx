@@ -9,7 +9,7 @@ const PokemonDetail = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
   const [moves, setMoves] = useState([]);
-  console.log(moves)
+  console.log(moves);
 
   useEffect(() => {
     axios
@@ -18,9 +18,10 @@ const PokemonDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/move/")
-    .then((res) => setMoves(res.data.results))
-  }, [])
+    axios
+      .get("https://pokeapi.co/api/v2/move/")
+      .then((res) => setMoves(res.data.results));
+  }, []);
 
   const colors = () => {
     const arrColor = [];
@@ -32,93 +33,161 @@ const PokemonDetail = () => {
     return arrColor;
   };
 
+  const calculateWidth = (base_stat, max) => {
+    return base_stat ? `${(Number(base_stat) / max) * 100}%` : 0;
+  };
+
   // console.log(character);
   return (
     <div className="card-details-container">
-      <section className="head" style={{ background: colors() }}></section>
-      <section className="card-detail"></section>
-      <img
-        id="pokemon-detail"
-        src={character.sprites?.other?.dream_world?.front_default}
-        alt=""
-      />
-
-      <div className="main-data-container">
-
-      <section className="name-head">
-        <div className="pokemon-id" style={{ color: colors() }}>
-          #{character.id}
+      <header className="details-header-pokedex">
+        <img
+          className="details-image-header"
+          src="../src/assets/images/head-intro.png"
+          alt="image"
+        />
+        <div className="details-black-header-container">
+          <div className="details-black-header-circle">
+            <div className="details-little-header-black-circle"></div>
+          </div>
         </div>
-        <h3 style={{ color: colors() }}>{character.name}</h3>
-        <div className="info">
-          <p style={{ color: colors() }}>Weight</p>
-          <p style={{ color: colors() }}>Height </p>
+      </header>
+      <section className="main-container">
+        <div className="pokemon-detail-container">
+          <div className="header-detail" style={{ background: colors() }}>
+            <div className="pokemon-id" style={{ color: colors() }}>
+              <p>#{character.id}</p>
+            </div>
+            <img
+              id="detail-pokemon-img-container"
+              src={character.sprites?.other?.dream_world?.front_default}
+              alt=""
+            />
+          </div>
+
+          <h3 className="details-name" style={{ color: colors() }}>
+            {character.name}
+          </h3>
+          <div className="info">
+            <div className="stat">
+              <p style={{ color: colors() }}>
+                Weight <br />
+                <span>{character.weight}</span>
+              </p>
+              <p style={{ color: colors() }}>
+                Height <br />
+                <span>{character.height}</span>
+              </p>
+            </div>
+          </div>
+          <img
+            className="pokeball-img"
+            src="../src/assets/images/pokebola.png"
+            alt="pokeball-img"
+          />
         </div>
-        <div className="num">
-          <p style={{ color: colors() }}>{character.weight}</p>
-          <p style={{ color: colors() }}>{character.height}</p>
+
+        <div className="stats-container">
+          <div id="stadistics">
+            <h2>Stats</h2>
+            <div className="stat-field">
+              <b>HP</b>
+              <b>{character.stats?.[0].base_stat}/150</b>
+            </div>
+            <div className="progress-container">
+              <div
+                className="progress"
+                style={{
+                  width: calculateWidth(character.stats?.[0].base_stat, 150),
+                  background: colors(),
+                }}
+              ></div>
+            </div>
+
+            <div className="stat-field">
+              <b>Attack</b>
+              <b>{character.stats?.[1].base_stat}/150</b>
+            </div>
+            <div className="progress-container">
+              <div
+                className="progress"
+                style={{
+                  width: calculateWidth(character.stats?.[1].base_stat, 150),
+                  background: colors(),
+                }}
+              ></div>
+            </div>
+
+            <div className="stat-field">
+              <b>Defense</b>
+              <b>{character.stats?.[2].base_stat}/150</b>
+            </div>
+            <div className="progress-container">
+              <div
+                className="progress"
+                style={{
+                  width: calculateWidth(character.stats?.[2].base_stat, 150),
+                  background: colors(),
+                }}
+              ></div>
+            </div>
+
+            <div className="stat-field">
+              <b>Speed</b>
+              <b>{character.stats?.[5].base_stat}/150</b>
+            </div>
+            <div className="progress-container">
+              <div
+                className="progress"
+                style={{
+                  width: calculateWidth(character.stats?.[5].base_stat, 150),
+                  background: colors(),
+                }}
+              ></div>
+            </div>
+          </div>
+          <section className="skills-container">
+            <h4 style={{ borderBottom: `2px solid ${colors()}` }}>Skills</h4>
+            <div className="skills">
+              {character.abilities?.map((ability) => (
+                <span
+                  key={ability.ability.name}
+                  className="ability"
+                  style={{ background: colors() }}
+                >
+                  {ability.ability.name.replace("-", " ")}
+                </span>
+              ))}
+            </div>
+          </section>
+          <section className="pokemon-type-container">
+            <h4 style={{ borderBottom: `2px solid ${colors()}` }}>Type</h4>
+            <div className="pokemon-type">
+              {character.types?.map((type) => (
+                <span
+                  key={type.type.name}
+                  className="ability"
+                  style={{ background: colors() }}
+                >
+                  {type.type.name}
+                </span>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section id="pokemon-type">
-        <h4>Type</h4>
-        <p style={{ color: colors() }}>
-          {character.types?.[0]?.type?.name} /{" "}
-          {character.types?.[1]?.type?.name}
-        </p>
-      </section>
-      
-      </div>
-
-      <section id="skills">
-        <h4>Skills</h4>
-        <p style={{ color: colors() }}>
-          {character.abilities?.[0]?.ability.name} /{" "}
-          {character.abilities?.[1]?.ability.name}
-        </p>
-      </section>
-
-      <section id="stats">
-        <p>HP: {character.stats?.[0].base_stat} / 150</p>
-        <progress
-          value={character.stats?.[0].base_stat}
-          min="0"
-          max="150"
-        ></progress>
-        <p>Attack: {character.stats?.[1].base_stat} / 150</p>
-        <progress
-          value={character.stats?.[1].base_stat}
-          min="0"
-          max="150"
-        ></progress>
-        <p>Defense: {character.stats?.[2].base_stat} / 150</p>
-        <progress
-          value={character.stats?.[2].base_stat}
-          min="0"
-          max="150"
-        ></progress>
-        <p>Speed: {character.stats?.[3].base_stat} / 150</p>
-        <progress
-          value={character.stats?.[3].base_stat}
-          min="0"
-          max="150"
-        ></progress>
-      </section>
-      
-      <div id="moves" style={{background: colors() }}>
-      <div id="title"><h2>MOVEMENTS</h2></div>
-        {
-          moves.map((move) => (
+        <div id="moves">
+          <div id="title">
+            <h2>MOVEMENTS</h2>
+          </div>
+          {moves.map((move) => (
             <ul>
-              <li>
-                {move.name}
-              </li>
+              <li style={{ background: colors() }}>{move.name}</li>
             </ul>
-          ))
-        }
-      </div>
-
+          ))}
+        </div>
+      </section>
     </div>
+
   );
 };
 

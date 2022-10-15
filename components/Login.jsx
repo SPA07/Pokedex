@@ -22,18 +22,18 @@ const Login = () => {
       <div className="input-container">
         <input
           type="text"
-          placeholder="ENTER YOUR NAME"
+          placeholder="Your name..."
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
         <button onClick={dispatchUserName}>Start</button>
       </div>
       <footer className="footer-login">
-        <div className="footer-red"></div>
-        <div className="image-footer-container">
-          <div className="image-footer-little"></div>
+        <div className="black-container">
+          <div className="black-circle">
+            <div className="little-black-circle"></div>
+          </div>
         </div>
-        <div className="footer-black"></div>
       </footer>
     </div>
   );

@@ -7,7 +7,7 @@ import ProtectedRoutes from "../components/ProtectedRoutes";
 function App() {
   return (
     <HashRouter>
-      <div className="App">
+      <>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route element={<ProtectedRoutes />}>
@@ -15,7 +15,7 @@ function App() {
             <Route path="/character/:id" element={<PokemonDetail />} />
           </Route>
         </Routes>
-      </div>
+      </>
     </HashRouter>
   );
 }
