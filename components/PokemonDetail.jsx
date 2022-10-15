@@ -43,7 +43,7 @@ const PokemonDetail = () => {
       <header className="details-header-pokedex">
         <img
           className="details-image-header"
-          src="../src/assets/images/head-intro.png"
+          src="../src/assets/head-intro.png"
           alt="image"
         />
         <div className="details-black-header-container">

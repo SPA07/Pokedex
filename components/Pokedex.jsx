@@ -91,7 +91,7 @@ const Pokedex = () => {
       <header className="header-pokedex">
         <img
           className="image-header"
-          src="../src/assets/images/head-intro.png"
+          src="../src/assets/head-intro.png"
           alt="image"
         />
         <div className="black-header-container">

@@ -37,7 +37,7 @@ li {
 .login-img-container {
   /* border: 1px solid; */
   box-sizing: border-box;
-  background-image: url(./assets/images/head-intro.png);
+  background-image: url(./assets/head-intro.png);
   background-size: contain;
   background-repeat: no-repeat;
   margin: 80px auto;
