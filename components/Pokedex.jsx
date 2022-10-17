@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
+import head from "../src/assets/head-intro.png";
 import "../src/stylesPokedex.css";
 
 const Pokedex = () => {
@@ -91,7 +92,7 @@ const Pokedex = () => {
       <header className="header-pokedex">
         <img
           className="image-header"
-          src="../src/assets/head-intro.png"
+          src={head}
           alt="image"
         />
         <div className="black-header-container">
