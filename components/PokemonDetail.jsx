@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import types from "../src/types.json";
 import pokemonCol from "../src/pokemonCol.json";
+import head from "../src/assets/head-intro.png";
+import pokeball from "../src/assets/pokebola.png";
 import "../src/details.css";
 
 const PokemonDetail = () => {
@@ -43,7 +45,7 @@ const PokemonDetail = () => {
       <header className="details-header-pokedex">
         <img
           className="details-image-header"
-          src="../src/assets/head-intro.png"
+          src={head}
           alt="image"
         />
         <div className="details-black-header-container">
@@ -82,7 +84,7 @@ const PokemonDetail = () => {
           </div>
           <img
             className="pokeball-img"
-            src="../src/assets/pokebola.png"
+            src={pokeball}
             alt="pokeball-img"
           />
         </div>
