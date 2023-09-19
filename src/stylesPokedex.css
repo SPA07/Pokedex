@@ -28,13 +28,14 @@
 }
 
 .black-header-container {
-  background-color: #0C0C0C;
+  background-color: #0c0c0c;
   width: 100%;
   height: 55px;
   display: flex;
   align-self: flex-end;
   position: relative;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .black-header-circle {
@@ -55,7 +56,7 @@
 .little-header-black-circle {
   border: 12px solid #000;
   border-radius: 50%;
-  background-color: #302F2F;;
+  background-color: #302f2f;
   width: 63px;
   height: 63px;
   position: absolute;
@@ -73,13 +74,13 @@
 }
 
 .welcome-container p {
-  color: #FE1936;
+  color: #fe1936;
   font-size: 25px;
   font-weight: 700;
 }
 
 .welcome-container span {
-  color: #302F2F;
+  color: #302f2f;
   font-weight: 400;
 }
 
@@ -111,12 +112,12 @@
 }
 
 .pokedex-input-container input::placeholder {
-  color: #D3D3D3
+  color: #d3d3d3;
 }
 
 .pokedex-input-container button {
   border: none;
-  background: #D93F3F;
+  background: #d93f3f;
   color: #fff;
   width: 200px;
   height: 70px;
@@ -164,7 +165,7 @@
   justify-content: center;
   align-self: flex-end;
   gap: 70px;
-} 
+}
 
 #btn {
   border: none;
@@ -179,7 +180,7 @@
 
 #btn:hover {
   cursor: pointer;
-  background-color: #D93F3F;
+  background-color: #d93f3f;
 }
 
 #pagination {
@@ -195,5 +196,60 @@
 
 #pagination:hover {
   cursor: pointer;
-  background-color: #D93F3F;
+  background-color: #d93f3f;
+}
+
+@media (max-width: 475px) {
+  .header-pokedex {
+    width: 100%;
+  }
+
+  .header-pokedex img {
+    display: none;
+  }
+
+  .welcome-container {
+    width: 90%;
+    margin-top: 180px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+  }
+
+  .input-tools {
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .pokedex-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .pokedex-input-container input {
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .pokedex-input-container button {
+    border-radius: 10px;
+    width: 60%;
+  }
+
+  .pokemon-options {
+    width: 100%;
+  }
+
+  .pokemon-container {
+    margin-top: 10px;
+  }
+ 
 }

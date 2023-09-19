@@ -149,3 +149,36 @@ li {
   margin: 0 auto;
   position: absolute;
 }
+
+@media (max-width: 475px) {
+  .login-img-container {
+    width: 350px;
+  }
+
+  .login-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .login-container p {
+    font-size: 1.5rem;
+  }
+
+  .input-container {
+    width: 90%;
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-container input {
+    border-radius: 10px;
+    width: 85%;
+  }
+
+  .input-container button {
+    border-radius: 10px;
+    width: 50%;
+  }
+}
